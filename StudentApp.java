@@ -5,15 +5,13 @@ public class StudentApp{
 		System.out.print("生徒は何人>");
 		int num = scan.nextInt(); 
 		Student[] students = new Student[num];
-		int id_num = 1;
 		for(int i=0;i<students.length;i++){
-			System.out.printf("%d人目の名前>",id_num);
+			System.out.printf("%d人目の名前>",i+1);
 			String name = scan.next();
-			System.out.printf("%d人目の点数>",id_num);
+			System.out.printf("%d人目の点数>",i+1);
 			int point = scan.nextInt();
-			Student student=new Student(id_num,name,point);
-			students[id_num-1]=student;
-			id_num++;
+			Student student=new Student(i+1,name,point);
+			students[i]=student;
 		}
 		int input = 0;
 		do{
@@ -24,20 +22,19 @@ public class StudentApp{
 		System.out.println("アプリケーションを終了します");
 	}
 	static void rearranging(Student[] students,int input){
-		Student[] disposable = new Student[1];
 		for(int i=0;i<students.length;i++){
 			for(int j=1+i;j<students.length;j++){
 				if(input ==1){
 					if(students[i].id > students[j].id){
-						disposable[0] = students[i];
+						Student temp = students[i];
 						students[i] = students[j];
-						students[j] = disposable[0];
+						students[j] = temp;
 					}
 				}else{
 					if(students[i].score < students[j].score){
-						disposable[0] = students[i];
+						Student temp = students[i];
 						students[i] = students[j];
-						students[j] = disposable[0];
+						students[j] = temp;
 					}
 				}
 			}
