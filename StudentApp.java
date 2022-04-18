@@ -17,33 +17,25 @@ public class StudentApp{
 			int ans = scan.nextInt();
 			switch(ans){
 				case 1:
-					for(int i=0 ;i<students.length;i++){
-						for(int j=i+1;j<students.length;j++){
-							if(students[i].id<students[j].id){
-								Student temp = students[i];
-								students[i] = students[j];
-								students[j] = temp;
-							}
-						}
-						students[i].showInfo();
-					}
-					break;
 				case 2:
-					for(int i=0 ;i<students.length;i++){
-						for(int j=i+1;j<students.length;j++){
-							if(students[i].score<students[j].score){
-								Student temp = students[i];
-								students[i] = students[j];
-								students[j] = temp;
-							}
-						}
-						students[i].showInfo();
-					}
+					sortIndi(ans,students);
 					break;
 				case 3:
 					System.out.println("アプリケーションを終了します");
 					return;
 			}
+		}
+	}
+	public static void sortIndi(int ans,Student[] students){
+		for(int i=0 ;i<students.length;i++){
+			for(int j=i+1;j<students.length;j++){
+				if(ans==1 && students[i].id>students[j].id || ans==2 && students[i].score<students[j].score){
+					Student temp = students[i];
+					students[i] = students[j];
+					students[j] = temp;
+				}
+			}
+			students[i].showInfo();
 		}
 	}
 }
