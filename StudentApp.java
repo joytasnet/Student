@@ -7,7 +7,7 @@ public class StudentApp{
 		Student[] students = new Student[num];
 		for(int i=0;i<students.length;i++){
 			int id = i+1;
-		  System.out.printf("%d人目の名前>",i+1);
+		  System.out.printf("%d人目の名前>",id);
 			String name =scan.next();
 		  System.out.printf("%d人目の点数>",i+1);
 			int score =scan.nextInt();
@@ -41,7 +41,7 @@ public class StudentApp{
 			}
 		}
 	}
-	public static void scoreSort(Student[] arr){         //点数降順
+	public static void scoreSort(Student[] arr){   //点数降順
 		for(int i=0;i<arr.length-1;i++){
 			for(int j=i+1;j<arr.length;j++){
 				if(arr[i].score < arr[j].score){
